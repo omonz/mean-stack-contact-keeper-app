@@ -1,5 +1,9 @@
 const express = require('express');
+const connectDB = require('./config/db');
 const app = express();
+
+//connect database
+conectDb();
 app.get('/', (req, res) => 
     res.json({ greetings: 'this is noce'})
 );
