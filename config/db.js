@@ -9,10 +9,12 @@ const connectDB = async () => {
             useCreateIndex: true,
             useFindAndModify: false
         });
-        
+
         console.log('mongoDb Connected');
     } catch (error) {
         console.log(err.message);
         process.exit(1);
     }   
-}
+};
+
+module.exports = connectDB;

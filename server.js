@@ -3,10 +3,13 @@ const connectDB = require('./config/db');
 const app = express();
 
 //connect database
-conectDb();
+connectDB();
+
 app.get('/', (req, res) => 
     res.json({ greetings: 'this is noce'})
-);
+); 
+
+app.use(express.json({ extended: false }));
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/contact', require('./routes/contact'));
