@@ -20,7 +20,6 @@ const ContactForm = () => {
         };
     }, [contactContext, current]);
 
-
     //set the state
     const [contact, setContact] = useState({
         name: '',
@@ -28,7 +27,6 @@ const ContactForm = () => {
         phone: '',
         type: 'personal'
     });
-
 
     const {name, email, phone, type } = contact;
 
