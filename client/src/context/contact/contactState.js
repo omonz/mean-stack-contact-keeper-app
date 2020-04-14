@@ -13,7 +13,6 @@ import {
     FILTER_CONTACT,
     CLEAR_FILTER
 } from '../types';
-import contactContext from './contactContext';
 
 const ContactState = props => {
     const initialState = {
@@ -40,7 +39,8 @@ const ContactState = props => {
                 type: 'professional'
             }
         ],
-        current: null
+        current: null,
+        filtered: null
     }
 
     const [state, dispatch]  = useReducer(ContactReducer, initialState);
@@ -71,19 +71,28 @@ const ContactState = props => {
     }
 
     //Filter Contact
+    const filterContacts = text => {
+        dispatch({ type: FILTER_CONTACT, payload: text });
+    }
 
     //Clear Contact
+    const clearFiltered = () => {
+        dispatch({ type: CLEAR_FILTER });
+    }
 
     return (
         <ContactContext.Provider
             value={{
                 contacts: state.contacts,
                 current: state.current,
+                filtered: state.filtered,
                 addContact,
                 deleteContact,
                 setCurrent,
                 clearCurrent,
-                updateContact
+                updateContact,
+                filterContacts,
+                clearFiltered
             }}
         >
             {props.children}
