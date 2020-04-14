@@ -7,6 +7,9 @@
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --teal-color: teal;
+  --dark-color: #333333;
+  --gray-color: gray;
 }
 
 * {
@@ -239,6 +242,24 @@ img {
   color: #fff;
 }
 
+
+.text-teal {
+  color: var( --teal-color);
+}
+
+.text-dark {
+  color: var( --dark-color);
+}
+
+.btn-teal,
+
+.bg-teal,
+.badge-teal,
+.alert-teal {
+  background: var( --teal-color);
+  color: #fff;
+}
+
 .btn-light,
 .bg-light,
 .badge-light,
@@ -375,7 +396,7 @@ table th {
   padding: 0.7rem 2rem;
   z-index: 1;
   width: 100%;
-  border-bottom: solid 1px var(--primary-color);
+  border-bottom: solid 1px var( --teal-color);
   opacity: 0.9;
   margin-bottom: 1rem;
 }

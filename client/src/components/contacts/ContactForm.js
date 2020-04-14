@@ -55,7 +55,7 @@ const ContactForm = () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <h2 className="text-primary">{ current ? 'Edit Contact': 'Add Contact'}</h2>
+            <h2 className="text-teal">{ current ? 'Edit Contact': 'Add Contact'}</h2>
             <input type='text' placeholder='Name' name='name' value={name} onChange={onchange}/>
             <input type='email' placeholder='Email' name='email' value={email} onChange={onchange}/>
             <input type='text' placeholder='Phone' name='phone' value={phone} onChange={onchange}/>
@@ -68,7 +68,7 @@ const ContactForm = () => {
                 <input 
                     type='submit' 
                     value={ current ? 'Update Contact':'Add New'} 
-                    className='btn btn-primary btn-block'/
+                    className='btn btn-teal btn-block'/
                 >
             </div>
             

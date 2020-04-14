@@ -1,6 +1,5 @@
 //dispatch to reducer
 import React, { useReducer } from 'react';
-// import uuid from 'uuid';
 import {v4 as uuid} from "uuid"; 
 import ContactContext from './contactContext';
 import ContactReducer from './contactReducer';
@@ -33,7 +32,7 @@ const ContactState = props => {
             },
             {
                 id:3,
-                name: 'Grill Larry',
+                name: 'Grill Larry', 
                 email: 'grilllary@gmail.com',
                 phone: '93-453-093-848',
                 type: 'professional'
