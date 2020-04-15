@@ -1,0 +1,4 @@
+{
+    "mongoURI" : "mongodb+srv://codeplansolution:Emmizy2013@contactstore-0gxcg.mongodb.net/contact",
+    "jwtSecret": "secret"
+}
