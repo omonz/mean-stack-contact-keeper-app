@@ -1,7 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AlertContext from '../../context/alert/AlertContext';
+import AuthContext from '../../context/auth/AuthContext';
 
-const Login = () => {
+const Login = props => {
+    const alertContext = useContext(AlertContext);
+    const authContext = useContext(AuthContext);
+
+    const { login, error, clearErrors, isAuthenticated } = authContext;
+    const { setAlert } = alertContext;
+
+    useEffect(() => {
+        if(isAuthenticated){
+            props.history.push('/');
+        }
+
+        if(error){
+            setAlert(error, 'danger');
+            clearErrors();
+        }
+
+        //eslink-disable-next-line
+    })
+
     const [user, setUser] = useState({
         email: '',
         password: ''
@@ -13,7 +34,11 @@ const Login = () => {
     
     const onSubmit = e => {
         e.preventDefault();
-        console.log(email);
+       if(email === '' || password === ''){
+           setAlert('all fields required', 'danger');
+       }else{
+           login({ email, password});
+       }
     }
 
     return (
@@ -28,11 +53,11 @@ const Login = () => {
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" placeholder="Emal" value={email} onChange={onChange} />
+                    <input type="email" name="email" placeholder="Emal" value={email} required onChange={onChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" placeholder="Password" value={password} onChange={onChange} />
+                    <input type="password" name="password" placeholder="Password" required value={password} onChange={onChange} />
                 </div>
                 <input type="submit" className="btn btn-teal" value="login"/>
                 <Link to='/register' className="btn btn-light">Don't have account? Register</Link>

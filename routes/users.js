@@ -21,7 +21,7 @@ router.post('/', [
         return res.status(400).json( {errors: errors.array() });
     }
 
-    //get the user params
+    //get the user params 
     const {name, email, password} = req.body;
 
     try {
